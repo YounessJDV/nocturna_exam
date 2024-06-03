@@ -6,7 +6,7 @@ export const Offres = () => {
       <div className="bg-gradient-to-b from-white to-[#EAEAEA]">
         <div className="px-4 py-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 poppins" data-aos="zoom-in" data-aos-duration="1300">
           <div className="max-w-xl mb-10 mx-auto text-center lg:max-w-2xl md:mb-12">
-            <p className="text-base font-semibold leading-6 text-[#45008B] uppercase mb-2">
+            <p className="text-base font-semibold leading-6 text-[#45008b] uppercase mb-2">
               lancez-vous
             </p>
             <h2 className="max-w-lg mb-6 font-extrabold leading-8 tracking-tight text-gray-900 dark:text-white text-3xl sm:text-4xl mx-auto">
@@ -35,7 +35,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -61,7 +61,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -85,7 +85,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -109,7 +109,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -133,7 +133,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -157,7 +157,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -184,7 +184,7 @@ export const Offres = () => {
               <div>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-[#45008B] rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
+                  className="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-[#45008b] rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
                 >
                   DEVIS GRATUIT
                 </Link>
@@ -211,7 +211,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -237,7 +237,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -261,7 +261,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -285,7 +285,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -309,7 +309,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -333,7 +333,7 @@ export const Offres = () => {
                     <li className="flex items-center">
                       <div className="mr-2">
                         <svg
-                          className="w-4 h-4 text-[#45008B]"
+                          className="w-4 h-4 text-[#45008b]"
                           viewBox="0 0 24 24"
                           strokeLinecap="round"
                           strokeWidth="2"
@@ -360,7 +360,7 @@ export const Offres = () => {
               <div>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-[#45008B] rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
+                  className="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-[#45008b] rounded shadow-md hover:bg-gray-900 focus:shadow-outline focus:outline-none"
                 >
                   DEVIS GRATUIT
                 </Link>

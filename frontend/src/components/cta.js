@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Routes, Switch, Link } from "react-router-
 
 function Cta() {
     return (
-        <div className="cta w-5/6 md:4/5 lg:w-4/5 xl:w-2/3 mx-auto mt-8 rounded-3xl shadow-lg bg-[#45008B] dark:bg-gray-800 poppins">
+        <div className="cta w-5/6 md:4/5 lg:w-4/5 xl:w-2/3 mx-auto mt-8 rounded-3xl shadow-lg bg-[#45008b] dark:bg-gray-800 poppins">
             <div className="text-center w-full lg:w-4/5 mx-auto text-white dark:text-white py-8 px-4 sm:px-6 lg:py-12 lg:px-8 z-20">
                 <h2 className="text-2xl md:text-3xl font-bold mb-5 sm:text-4xl">
                     <span className="block">

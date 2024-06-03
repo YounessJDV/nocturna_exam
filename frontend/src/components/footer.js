@@ -10,7 +10,7 @@ function scrollToScrollTest() {
 
 function Footer() {
     return (
-        <footer className="flex flex-col bg-gradient-to-t from-[#45008B] to-[#63179C] poppins pt-12">
+        <footer className="flex flex-col bg-gradient-to-t from-[#45008b] to-[#63179C] poppins pt-12">
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 mt-16 flex flex-col justify-center md:flex-row md:justify-between gap-12">
                     <div className="w-full md:w-1/3">
                                 <Link to="/" onClick={scrollToScrollTest}>

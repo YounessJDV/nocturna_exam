@@ -31,7 +31,7 @@ function Login() {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post('http://localhost:5000/api/login', formData);
+        const response = await axios.post('http://localhost:4000/api/login', formData);
         login(response.data.token); // Utilisez la fonction login du contexte pour mettre à jour l'état
         // Rediriger l'utilisateur vers une page protégée ou une autre page après la connexion réussie
         setRedirect(true);;
@@ -76,7 +76,7 @@ function Login() {
                           </div>
                           <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                       </div> */}
-                      <button type="submit" className="w-full text-white bg-[#45008B] font-medium rounded-lg text-sm px-5 py-2.5 text-center">Connexion</button>
+                      <button type="submit" className="w-full text-white bg-[#45008b] font-medium rounded-lg text-sm px-5 py-2.5 text-center">Connexion</button>
                       <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                       Pas encore de compte ? -
                       <Link to="/register">

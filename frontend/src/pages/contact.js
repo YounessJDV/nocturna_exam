@@ -13,7 +13,7 @@ import Navbar from '../components/Navbar'
 function Contact() {
     const form = useRef();
     const [valeurBtn, setValeurBtn] = useState("Envoyer");
-    const [btnClass, setBtnClass] = useState("bg-[#45008B] px-8"); // état pour la classe du bouton
+    const [btnClass, setBtnClass] = useState("bg-[#45008b] px-8"); // état pour la classe du bouton
     const [loadingVisible, setLoadingVisible] = useState(false); // État pour la visibilité de l'icône de chargement
 
     const sendEmail = (e) => {
@@ -31,7 +31,7 @@ function Contact() {
             })
             .then(
                 () => {
-                    // Après 3 secondes, changer la valeur du bouton en "Envoyé"
+                    // Après 1 secondes, changer la valeur du bouton en "Envoyé"
                     setTimeout(() => {
                         setValeurBtn("Envoyé");
                         setBtnClass("bg-[#008000] px-8");
@@ -39,10 +39,10 @@ function Contact() {
                         // Après 2 secondes, revenir à la valeur initiale "Envoyer"
                         setTimeout(() => {
                             setValeurBtn("Envoyer");
-                            setBtnClass("bg-[#45008B] px-8");
+                            setBtnClass("bg-[#45008b] px-8");
                             form.current.reset(); // Réinitialiser les champs du formulaire
-                        }, 2000);
-                    }, 2000);
+                        }, 1000);
+                    }, 1000);
                     // console.log('SUCCESS!');
                 },
                 (error) => {
@@ -202,7 +202,7 @@ function Contact() {
                                 transform transition duration-500 
                                 sm:hover:scale-105 
                                 sm:hover:cursor-pointer 
-                                flex mx-auto text-white border-0 py-2 focus:outline-none sm:hover:bg-[#45008B]/90 rounded text-lg poppins`}>
+                                flex mx-auto text-white border-0 py-2 focus:outline-none sm:hover:bg-[#45008b]/90 rounded text-lg poppins`}>
 
                                 {loadingVisible && <AiOutlineLoading3Quarters className="fill-white h-5 w-5 mx-5 animate-spin" />}
                                 {valeurBtn}

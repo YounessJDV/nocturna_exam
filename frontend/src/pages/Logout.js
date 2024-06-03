@@ -10,7 +10,7 @@ const Logout = () => {
   useEffect(() => {
     console.log('Déconnecté avec succès')
     logout();
-    navigate('/login');
+    navigate('/');
   }, [navigate, logout]);
 
   return null;

@@ -1,19 +1,22 @@
-// Configuration du serveur Express :
 const express = require('express');
 const cors = require('cors'); // Importez le middleware CORS
+const multer = require('multer'); // Importez multer pour le téléchargement d'images
+const path = require('path'); // Ajouter cette ligne si elle n'est pas déjà présente
+const mysql = require('mysql');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const authenticateToken = require('./authMiddleware');
 
 const app = express();
 
 // Ajoutez le middleware CORS à votre application
 app.use(cors());
 
-//  Configuration de la connexion à la base de données
-const mysql = require('mysql');
-
+// Configuration de la connexion à la base de données
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '', // Mettez le mot de passe de votre base de données MySQL ici
+  password: 'root', // Mettez le mot de passe de votre base de données MySQL ici
   database: 'examen_nocturna' // Mettez le nom de votre base de données MySQL ici
 });
 
@@ -27,10 +30,25 @@ connection.connect((err) => {
 
 // Middleware pour le traitement des données JSON
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Configuration de multer pour le stockage des images
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
 
 // Route pour l'inscription d'un utilisateur
-const bcrypt = require('bcrypt');
-
 app.post('/api/register', async (req, res) => {
   const { username, password, email } = req.body;
 
@@ -54,10 +72,7 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-
 // Route pour la connexion d'un utilisateur
-const jwt = require('jsonwebtoken');
-
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -89,9 +104,6 @@ app.post('/api/login', async (req, res) => {
   });
 });
 
-//authMiddleware
-const authenticateToken = require('./authMiddleware');
-
 // Route pour récupérer les informations de l'utilisateur connecté
 app.get('/api/user', authenticateToken, (req, res) => {
   const userId = req.user.id; // Obtenez l'ID de l'utilisateur à partir du token JWT
@@ -106,14 +118,38 @@ app.get('/api/user', authenticateToken, (req, res) => {
   });
 });
 
+// Récupérer les données de réalisation
+app.get('/api/realisations', (req, res) => {
+  connection.query('SELECT * FROM realisations', (error, results) => {
+    if (error) {
+      res.status(500).send(error);
+    } else {
+      res.json(results);
+    }
+  });
+});
 
+// Route pour ajouter une réalisation avec image
+app.post('/api/realisations', upload.single('image'), (req, res) => {
+  const { title, description } = req.body;
+  const imageUrl = `/uploads/${req.file.filename}`;
+
+  const query = 'INSERT INTO realisations (title, description, image_url) VALUES (?, ?, ?)';
+  connection.query(query, [title, description, imageUrl], (error, results) => {
+    if (error) {
+      res.status(500).send(error);
+    } else {
+      res.status(201).send({ id: results.insertId, title, description, image_url: imageUrl });
+    }
+  });
+});
 
 app.get('/api/protected', authenticateToken, (req, res) => {
   res.send('Cette route est protégée');
 });
 
-//Écoute du serveur sur un port
-const PORT = process.env.PORT || 5000;
+// Écoute du serveur sur un port
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`Serveur backend démarré sur le port ${PORT}.`);

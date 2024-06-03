@@ -1,5 +1,6 @@
-import React from 'react';
-import {useRef} from "react";
+import React, { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
+
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -39,7 +40,7 @@ const CardPortfolio = ({ title, description, src }) => {
         </Typography> */}
       </CardBody>
       <CardFooter className="pt-0 text-center">
-        <Button className="poppins font-semiboldtext-md text-white bg-[#45008B] duration-300 hover:bg-[#4f46e5]">
+        <Button className="poppins font-semiboldtext-md text-white bg-[#45008b] duration-300 hover:bg-[#4f46e5]">
           <a target="_blank" href={src}>Découvrir</a>
         </Button>
       </CardFooter>
@@ -49,7 +50,18 @@ const CardPortfolio = ({ title, description, src }) => {
 
 const Realisations = () => {
 
+  const [realisations, setRealisations] = useState([]);
   const sliderRef = useRef(null);
+
+  useEffect(() => {
+    axios.get('http://localhost:4000/api/realisations')
+      .then(response => {
+        setRealisations(response.data);
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des réalisations :', error);
+      });
+  }, []);
 
   const goToPrev = () => {
     sliderRef.current.slickPrev();
@@ -64,13 +76,13 @@ const Realisations = () => {
     dots: false,
     infinite: true,
     speed: 200,
-    slidesToShow: 4,
+    slidesToShow: Math.min(3, realisations.length),
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(2, realisations.length),
           slidesToScroll: 1,
         },
       },
@@ -85,7 +97,7 @@ const Realisations = () => {
   };
 
   return (
-    <div className="my-5 py-5 bg-gradient-to-r from-[#45008B] to-[#63179C]" data-aos="fade-up" data-aos-duration="1300">
+    <div className="my-5 py-5 bg-gradient-to-r from-[#45008b] to-[#63179C]" data-aos="fade-up" data-aos-duration="1300">
       <div className="max-w-xl mt-5 mb-6 mx-auto text-center lg:max-w-3xl md:mb-6">
             <p className="text-base font-semibold leading-6 text-white uppercase mb-2">
                 CHOISISSEZ VOTRE DESIGN
@@ -99,35 +111,13 @@ const Realisations = () => {
       </div>
 
       <Slider {...settings} ref={sliderRef}>
-        {/* Remplace les éléments suivants avec les détails de tes projets */}
-        <div className="flex justify-center items-center h-full my-5">
-          <div className="flex justify-center items-center">
-            <CardPortfolio title="Vesperr" description="C'est un test" src={template1} />
+        {realisations.map(realis => (
+          <div key={realis.id} className="flex justify-center items-center h-full my-5">
+            <div className="flex justify-center items-center">
+              <CardPortfolio title={realis.title} description={realis.description} src={`http://localhost:4000${realis.image_url}`} />
+            </div>
           </div>
-        </div>
-
-        <div className="flex justify-center items-center h-full  my-5">
-          <div className="flex justify-center items-center">
-            <CardPortfolio title="Anwa" description="C'est un test" src={template2}/>
-          </div>
-        </div>
-
-        <div className="flex justify-center items-center h-full  my-5">
-          <div className="flex justify-center items-center">
-            <CardPortfolio title="Cleanixer" description="C'est un test" src={template3}/>
-          </div>
-        </div>
-        <div className="flex justify-center items-center h-full  my-5">
-          <div className="flex justify-center items-center">
-            <CardPortfolio title="Viscous" description="C'est un test" src={template4}/>
-          </div>
-        </div>
-        <div className="flex justify-center items-center h-full  my-5">
-          <div className="flex justify-center items-center">
-            <CardPortfolio title="Restaurantly" description="C'est un test" src={template5}/>
-          </div>
-        </div>
-        {/* Ajoute autant d'éléments que nécessaire pour tous tes projets */}
+        ))}
       </Slider>
       <div className="custom-arrows my-5">
         <button className="prev" onClick={goToPrev}>

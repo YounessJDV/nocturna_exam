@@ -19,8 +19,8 @@ function MentionsLegales() {
 
 
             <div className="text-center">
-                <h1 className="text-3xl sm:text-5xl text-[#45008B] font-bold mt-10 mb-2 poppins">Mentions Légales</h1>
-                <p className="mb-10 sm:mb-20 font-semibold text-lg text-gray-600 poppins">De <span className="text-[#45008B]">Nocturna</span></p>
+                <h1 className="text-3xl sm:text-5xl text-[#45008b] font-bold mt-10 mb-2 poppins">Mentions Légales</h1>
+                <p className="mb-10 sm:mb-20 font-semibold text-lg text-gray-600 poppins">De <span className="text-[#45008b]">Nocturna</span></p>
             </div>
 
             <div className="my-10">

@@ -15,7 +15,7 @@ const Item = ({ title, children }) => {
           onClick={() => setIsOpen(!isOpen)}
         >
           <p className="w-5/6 text-left sm:text-md md:text-lg font-medium">{title}</p>
-          <div className="flex items-center justify-center w-10 h-10 transition duration-150 ease-in-out bg-gradient-to-r from-[#45008B] to-[#9953F3] md:hover:from-slate-900 md:hover:to-slate-900 duration:0 hover:duration-500 border rounded-full">
+          <div className="flex items-center justify-center w-10 h-10 transition duration-150 ease-in-out bg-gradient-to-r from-[#45008b] to-[#9953F3] md:hover:from-slate-900 md:hover:to-slate-900 duration:0 hover:duration-500 border rounded-full">
             <svg
               viewBox="0 0 24 24"
               className={`w-3 text-white transition-transform duration-200 ${
